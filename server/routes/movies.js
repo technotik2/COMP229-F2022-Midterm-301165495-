@@ -91,6 +91,24 @@ router.post('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+     let id = req.params.id;
+     const {Title, Description, Released, Director, Genre} = req.body;
+   
+     const updatedmovie = new movie({
+       _id: id,
+       Title,
+       Description,
+       Released,
+       Director,
+       Genre,
+     });
+     movies.updateOne({_id: id}, updatedmovie, (err) => {
+       if (err) {
+         res.end(err);
+       } else {
+         res.redirect("/movies");
+       }
+     });
   
 
 });
