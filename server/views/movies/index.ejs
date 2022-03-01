@@ -37,14 +37,14 @@
                     <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
                     <!-- ------------------------ -->
-                    <a href="" class="btn btn-primary"><i class="fa fa-pencil"></i> Edit</a>
+                    <a href="movies/<%= list[count]._id %>" class="btn btn-primary"><i class="fa fa-pencil"></i> Edit</a>
                   </td>
 
                   <td class="text-center">
                     <!-- ------------------------ -->
                     <!-- ADD the DELETE BUTTON HERE -->
                     <!-- ------------------------ -->
-                    <a href="" class="btn btn-primary"><i class="fa fa-trash-o"></i> Delete</a>
+                    <a href="movies/delete/<%= list[count]._id %>" class="btn btn-primary"><i class="fa fa-trash-o"></i> Delete</a>
                   </td>
                 </tr>
                 <% } %>
