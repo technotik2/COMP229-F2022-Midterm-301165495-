@@ -66,7 +66,7 @@ router.post('/add', (req, res, next) => {
       
 
      const newmovie = new movies({
-       Title:req.body.Title,
+       "Title":req.body.Title,
        "Description":req.body.Description,
        "Released":req.body.Released,
        "Director":req.body.Director,
@@ -86,8 +86,8 @@ router.get('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-     let id = req.params.id;
-     movies.findById(id, (err, movieToEdit) => {
+     let _id = req.params.id;
+     movies.findById(_id, (err, movieToEdit) => {
        if (err) res.end(err);
        else {
          res.render("movies/details", {
@@ -104,7 +104,7 @@ router.post('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-     let id = req.params.id;
+     let _id = req.params.id;
      const {Title, Description, Released, Director, Genre} = req.body;
    
      const updatedmovie = new movies({
@@ -115,7 +115,7 @@ router.post('/:id', (req, res, next) => {
        Director,
        Genre
      });
-     movies.updateOne({_id:id}, updatedmovie, (err) => {
+     movies.updateOne({_id:_id}, updatedmovie, (err) => {
        if (err) {
          res.end(err);
        } else {
@@ -132,8 +132,8 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-     let id = req.params.id;
-     movies.deleteOne({_id: id}, (err) => {
+     let _id = req.params.id;
+     movies.deleteOne({_id: _id}, (err) => {
        if (err) res.end(err);
        else res.redirect("/movies");
      });
