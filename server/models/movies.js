@@ -9,7 +9,7 @@ let Movies = mongoose.Schema({
     Genre: String
 },
 {
-  collection: "movies"
+  collection: "Movies"
 });
 
 module.exports = mongoose.model('Movies', Movies);
