@@ -14,20 +14,5 @@ router.get('/', (req, res, next) => {
     movies: ''
    });
 });
-router.get('/', (req, res, next) => {
-  res.render('content/index', {
-    title: 'Home',
-    movies: ''
-   });
-});
-router.get('/details', (req, res, next) => {
-  res.render('movies/details', {
-    title: 'Movie Details',
-    movies: ''
-    
-   });
-});
-router.get('/add', function(req, res, next) {
-  res.render('movies/details', { title: 'Services' });
-});
+
 module.exports = router;

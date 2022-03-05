@@ -34,9 +34,16 @@ router.get('/add', (req, res, next) => {
         return console.error(err);
       }
       else {
+        const emptybook = new movies({
+          "Title":"",
+          "Description":"",
+          "Released":"",
+          "Director":"",
+          "Genre":"",
+        });
         res.render('movies/details', {
           title: 'Movies list',
-          list: list
+          list: emptybook
         });
       }
     });
@@ -50,17 +57,17 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-     const {Title, Description, Released, Director, Genre} = req.body; // Extrapolating data from req.body
+      
 
      const newmovie = new movies({
-       Title,
-       Description,
-       Released,
-       Director,
-       Genre,
+       "Title":req.body.Title,
+       "Description":req.body.Description,
+       "Released":req.body.Released,
+       "Director":req.body.Director,
+       "Genre":req.body.Genre,
      });
    
-     movies.create(newmovie, (err, movie) => {
+     movies.create(newmovie, (err, movies) => {
        if (err) res.end(err);
        else res.redirect("/movies");
      });
@@ -79,7 +86,7 @@ router.get('/:id', (req, res, next) => {
        else {
          res.render("movies/details", {
            title: "movie list",
-           movies: movieToEdit,
+           list: movieToEdit,
          });
        }
      }); 
@@ -92,17 +99,17 @@ router.post('/:id', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
      let id = req.params.id;
-     const {Title, Description, Released, Director, Genre} = req.body;
+     
    
-     const updatedmovie = new movie({
-       _id: id,
-       Title,
-       Description,
-       Released,
-       Director,
-       Genre,
+     const updatedmovie = new movies({
+       "_id": id,
+       "Title":req.body.Title,
+       "Description":req.body.Description,
+       "Released":req.body.Released,
+       "Director":req.body.Director,
+       "Genre":req.body.Genre,
      });
-     movies.updateOne({_id: id}, updatedmovie, (err) => {
+     movies.updateOne({_id:id}, updatedmovie, (err) => {
        if (err) {
          res.end(err);
        } else {
