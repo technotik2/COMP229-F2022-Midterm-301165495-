@@ -1,3 +1,8 @@
+/*****************
+     * Peyman Talkhekar
+     * 301165495
+     * server\config\db.js *
+     *****************/
 module.exports = {
   //local MongoDB deployment ->
   //"URI": "mongodb://localhost/movies"

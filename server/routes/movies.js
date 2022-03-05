@@ -1,3 +1,9 @@
+/*****************
+     * Peyman Talkhekar
+     * 301165495
+     * 05-03-2022
+     * server\routes\movies.js *
+     *****************/
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -34,7 +40,7 @@ router.get('/add', (req, res, next) => {
         return console.error(err);
       }
       else {
-        const emptybook = new movies({
+        const emptymovie = new movies({
           "Title":"",
           "Description":"",
           "Released":"",
@@ -43,7 +49,7 @@ router.get('/add', (req, res, next) => {
         });
         res.render('movies/details', {
           title: 'Movies list',
-          list: emptybook
+          list: emptymovie
         });
       }
     });
@@ -60,7 +66,7 @@ router.post('/add', (req, res, next) => {
       
 
      const newmovie = new movies({
-       "Title":req.body.Title,
+       Title:req.body.Title,
        "Description":req.body.Description,
        "Released":req.body.Released,
        "Director":req.body.Director,
@@ -99,15 +105,15 @@ router.post('/:id', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
      let id = req.params.id;
-     
+     const {Title, Description, Released, Director, Genre} = req.body;
    
      const updatedmovie = new movies({
-       "_id": id,
-       "Title":req.body.Title,
-       "Description":req.body.Description,
-       "Released":req.body.Released,
-       "Director":req.body.Director,
-       "Genre":req.body.Genre,
+       _id, 
+       Title, 
+       Description,
+       Released,
+       Director,
+       Genre
      });
      movies.updateOne({_id:id}, updatedmovie, (err) => {
        if (err) {

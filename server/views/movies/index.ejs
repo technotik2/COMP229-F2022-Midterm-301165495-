@@ -1,3 +1,7 @@
+<!-- * Peyman Talkhekar
+* 301165495
+* 05-03-2022
+* server\views\content\movies\index.ejs * -->
 <% include ../partials/header.ejs %>
 
     <!-- MAIN CONTENT -->
@@ -28,8 +32,8 @@
                 <% for (let count = 0; count < list.length; count++) { %>
                 <tr>
                   <td><%= list[count].Title %></td>
-                  <td class="text-center">$<%= list[count].Description %></td>
-                  <td class="text-center">$<%= list[count].Released %></td>
+                  <td class="text-center"><%= list[count].Description %></td>
+                  <td class="text-center"><%= list[count].Released %></td>
                   <td class="text-center"><%= list[count].Director %></td>
                   <td class="text-center"><%= list[count].Genre %></td>
 
